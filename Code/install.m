@@ -9,7 +9,7 @@ clc;
 
 addpath(codePath);
 
-addpath(fullfile(codePath,'SparsePCA'));
+addpath(fullfile(codePath,'Algorithms'));
 addpath(fullfile(codePath,'Utilities'));
 
 
