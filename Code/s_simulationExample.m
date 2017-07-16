@@ -82,7 +82,7 @@ sensorTemplate = sensorSet(sensorTemplate,'quantizationmethod','8bit');
 
 %% 1. Conventional color camera under 6500K light
 
-fName = fullfile(isetRootPath,'data','sensor','colorfilters','Canon600D');
+fName = fullfile(parentPath,'Parameters','GoProHero5.mat');
 camera = ieReadColorFilter(wave,fName);
 
 measVals = cell(1,28);
