@@ -60,7 +60,7 @@ hist.prRes = zeros(inputs.maxIter,1);
 hist.dualRes = zeros(inputs.maxIter,1);
 hist.pcgIter = zeros(inputs.maxIter,1);
 
-fprintf('Running non-negative sparse PCA arbitrary ...');
+fprintf('Running non-negative sparse PCA ...');
 tic
 for i=1:inputs.maxIter
     
