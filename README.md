@@ -2,6 +2,10 @@
 
 There are many application areas where users have full control over the illumination, and have the ability to shape its spectral power distribution. In those cases spectrally optimal light can accentuate features in images and hence improve image classification tasks.
 
+<p align="center"> 
+<img src="https://github.com/hblasins/optIll/blob/master/Figures/Overview.png">
+</p>
+
 In this project we propose two approaches that estimate the optimal spectral power distribution of the illuminant. The unsupervised approach uses nonnegative sparse Principal Component Analysis to derive optimal, and physically realizable illuminant spectra. The supervised approach incorporates linear image formation model directly into classification algorithm and uses alternating minimization to simultaneously search for classifier decision boundaries and optimal lights.
 
 If you use these tools please cite
