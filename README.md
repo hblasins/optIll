@@ -26,5 +26,10 @@ installed.
 
 ## Getting started
 
+Once you start MATLAB please run the `install.m` script from the `./Code` directory. This script adds all the relevant project sub-directories to MATLAB path.
+
+To see the algorithms in action you can have a look at `s_simulationExample.m` or `s_simulationNumChannels.` scripts. These use the ISET toolbox to simulate camera captures and compare conventional RGB cameras and broadband illuminants to using monochrome cameras and optimal lights. 
+
+The supervised and unsupervised illuminant selection algorithms are in `./Code/Algorithms` folder which also contains test scripts `t_***.m` that illustrate how these functions should be used and where possible (`sparsePCA.m`) compare the iterative ADMM implementation with that of `cvx`.
 
 
