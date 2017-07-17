@@ -11,6 +11,7 @@ addpath(codePath);
 
 addpath(fullfile(codePath,'Algorithms'));
 addpath(fullfile(codePath,'Utilities'));
+addpath(fullfile(codePath,'Plots'));
 
 
 if exist(fullfile(codePath,'Devices'),'dir')
