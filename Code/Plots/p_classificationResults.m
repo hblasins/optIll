@@ -21,7 +21,7 @@ end
 %% Initialize
 
 validTargets = {'GreenApples','YellowAndGreenPears','Lemons',...
-    'RedAndGreenApples','Teeth'};
+    'RedAndGreenApples'};
 
 target = 'Lemons';
 
@@ -45,25 +45,13 @@ switch target
         delta = 50;
         nClasses = 4;
         
-    case 'RedAndGreenApples-RealVsFake'
-        x = [339;816;260;818];
-        y = [257;263;531;552];
-        delta = 50;
-        nClasses = 2;
-        
     case 'GreenApples'        
         x = [300;910];
         y = [325;329];
         % delta = 100; Used in training
         delta = 350; % Used for display
         nClasses = 2;
-        
-    case 'Teeth'
-        
-        x = [79;91;85;241;243;352;356;449;446;439;531;517;638;632;745;720;721;817;806;922;920;995;1010;1007;1095;1101;1181;1197;1212];
-        y = [113;190;271;115;196;170;245;134;206;283;173;254;175;247;142;216;295;182;260;181;263;148;224;303;181;267;158;234;305];
-        delta = 40;
-        nClasses = 29;
+     
 end
 
 conventionalCameras = {'AptinaMT9M031','AptinaMT9M131',...
