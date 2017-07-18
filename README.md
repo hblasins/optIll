@@ -28,6 +28,10 @@ installed.
 * [ISET](http://imageval.com) - Image Systems Engineering Toolbox for camera sensor simulations. A light version of ISET is provided with this code repository.
 * [CVX](http://cvxr.com/) - a Matlab toolbox for convex optimization. As an alternative MATLAB Optimization Toolbox can also be used. **As of 06/2017 CVX is only supported on MATLAB 2016b and older.**
 
+## Data
+
+Sample data used in our experimens can be downloaded from the [Stanford Digital Repository](https://purl.stanford.edu/rq453qp3526). The `Images.zip` file contains all images captured using the experimental setup. The `Results.zip` contains pixel classification results, this data should be reproducible by running the appropriate `classify***.m` scripts. Note that given the extensive cross-validation these results will take long to generate, which is why we are also releasing them.
+
 ## Getting started
 
 Once you start MATLAB please run the `install.m` script from the `./Code` directory. This script adds all the relevant project sub-directories to MATLAB path.
