@@ -12,6 +12,7 @@ addpath(codePath);
 addpath(fullfile(codePath,'Algorithms'));
 addpath(fullfile(codePath,'Utilities'));
 addpath(fullfile(codePath,'Plots'));
+addpath(fullfile(codePath,'Experiments'));
 addpath(genpath(fullfile(codePath,'ISETtools')));
 
 
