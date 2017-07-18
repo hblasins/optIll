@@ -68,6 +68,7 @@ sceneWindow;
 
 sensorTemplate = sensorCreate('monochrome');
 sensorTemplate = sensorSet(sensorTemplate,'wave',wave);
+sensorTemplate = sensorSet(sensorTemplate,'filter spectra',ones(nWaves,1));
 sensorTemplate = sensorSet(sensorTemplate,'pixel spectral qe',qe');
 sensorTemplate = sensorSet(sensorTemplate,'quantizationmethod','8bit');
 
@@ -75,6 +76,7 @@ sensorTemplate = sensorSet(sensorTemplate,'quantizationmethod','8bit');
 
 fName = fullfile(parentPath,'Parameters','GoProHero5.mat');
 camera = ieReadColorFilter(wave,fName);
+camera(isnan(camera)) = 0;
 
 % Simulate data acquisition for each channel independently
 measVals = cell(1,28);

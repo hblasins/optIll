@@ -79,11 +79,13 @@ sceneWindow;
 sensorTemplate = sensorCreate('monochrome');
 sensorTemplate = sensorSet(sensorTemplate,'wave',wave);
 sensorTemplate = sensorSet(sensorTemplate,'quantizationmethod','8bit');
+sensorTemplate = sensorSet(sensorTemplate,'filter spectra',ones(nWaves,1));
 
 %% 1. Conventional color camera under 6500K light
 
 fName = fullfile(parentPath,'Parameters','GoProHero5.mat');
 camera = ieReadColorFilter(wave,fName);
+camera(isnan(camera)) = 0;
 
 measVals = cell(1,28);
 cameraGain = zeros(size(camera,2),1);
@@ -127,7 +129,6 @@ for b=1:length(c)
                            'BoxConstraint',c(b));
 
     model = fitcecoc(data,labels,'Learners',template,'Kfold',10);
-    % cvModel = crossval(model,'Kfold',10);
     accy(b) = 1 - kfoldLoss(model);
     fprintf('RGB camera: c=%.4f, accuracy=%.2f\n',c(b),accy(b));
 end
