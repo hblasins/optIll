@@ -19,7 +19,7 @@ If you use these tools please cite
 }
 ```
 
-The [manuscript](http://openaccess.thecvf.com/content_cvpr_2017/papers/Blasinski_Designing_Illuminant_Spectral_CVPR_2017_paper.pdf and the [supplement](http://openaccess.thecvf.com/content_cvpr_2017/supplemental/Blasinski_Designing_Illuminant_Spectral_2017_CVPR_supplemental.pdf) ara available on the [CVPR2017 website](http://openaccess.thecvf.com/CVPR2017.py).
+The [manuscript](http://openaccess.thecvf.com/content_cvpr_2017/papers/Blasinski_Designing_Illuminant_Spectral_CVPR_2017_paper.pdf) and the [supplement](http://openaccess.thecvf.com/content_cvpr_2017/supplemental/Blasinski_Designing_Illuminant_Spectral_2017_CVPR_supplemental.pdf) ara available on the [CVPR2017 website](http://openaccess.thecvf.com/CVPR2017.py).
 
 ## Dependencies
 
