@@ -10,14 +10,16 @@ In this project we propose two approaches that estimate the optimal spectral pow
 
 If you use these tools please cite
 ```
-@inproceedings{blasinski2017optIll,
-    title={Designing illuminant spectral power distribution for surface classification},
-    author={Blasinski, Henryk and Farrell, Joyce and Wandell, Brian},
-    booktitle={IEEE Computer Vision and Pattern Recognition, CVPR},
-    year={2017},
-    organization={IEEE}
+@inproceedings{Blasinski_2017_CVPR,
+    author = {Blasinski, Henryk and Farrell, Joyce and Wandell, Brian},
+    title = {Designing Illuminant Spectral Power Distributions for Surface Classification},
+    booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month = {July},
+    year = {2017}
 }
 ```
+
+The [manuscript](http://openaccess.thecvf.com/content_cvpr_2017/papers/Blasinski_Designing_Illuminant_Spectral_CVPR_2017_paper.pdf and the [supplement](http://openaccess.thecvf.com/content_cvpr_2017/supplemental/Blasinski_Designing_Illuminant_Spectral_2017_CVPR_supplemental.pdf) ara available on the [CVPR2017 website](http://openaccess.thecvf.com/CVPR2017.py).
 
 ## Dependencies
 
