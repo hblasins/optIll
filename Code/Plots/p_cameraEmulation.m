@@ -10,7 +10,8 @@ clc;
 ieInit;
 
 [codePath, parentPath] = olRootPath();
-destDir = fullfile(parentPath,'TestFigures');
+% destDir = fullfile(parentPath,'TestFigures');
+destDir = [];
 if isempty(destDir) == 0 && exist(destDir,'dir') == 0
     mkdir(destDir);
 end
@@ -149,7 +150,80 @@ plot(emulatedMacbethSamples(:,3),capturedMacbethSamples(:,3),'b.','markerSize',2
 xlabel('Emulated data');
 ylabel('Captured data');
 
+%% Plots for dissertation
+%  This is the plot formatting I used in my dissertation.
+
+destDir = fullfile('~','Desktop','Figures','Optimal illuminant');
+
+pos = [1 1 10 5];
+fs = 8;
+lw = 1;
+ms = 5;
+
+fig = figure;
+hold on; grid on; box on;
+hndl(1) = plot(data.wave,data.cameraIll(:,1),'k','lineWidth',lw);
+plot(data.wave,data.cameraIll(:,1),'r','lineWidth',lw);
+plot(data.wave,data.cameraIll(:,2),'g','lineWidth',lw);
+plot(data.wave,data.cameraIll(:,3),'b','lineWidth',lw);
+
+hndl(2) = plot(data.wave,data.ledCameraApprox(:,1),'k:','lineWidth',lw);
+plot(data.wave,data.ledCameraApprox(:,1),'r:','lineWidth',lw);
+plot(data.wave,data.ledCameraApprox(:,2),'g:','lineWidth',lw);
+plot(data.wave,data.ledCameraApprox(:,3),'b:','lineWidth',lw);
+xlabel('Wavelength, nm','Interpreter','LaTeX','FontSize',fs);
+ylabel('Responsivity, a.u.','Interpreter','LaTeX','FontSize',fs);
+
+set(gca,'XTick',400:100:800);
+set(gca,'FontSize',fs-2);
+set(gca,'TickLabelInterpreter','LaTeX');
+set(gcf,'PaperUnits','Centimeters');
+set(gcf,'PaperPosition',pos);
+
+lg = legend(hndl,{'Measured','Approximated'},'Interpreter','LaTex','FontSize',fs-2);
+
+if isempty(destDir) == 0
+    fName = fullfile(destDir,'RGBEmulationCurvesV2.eps');
+    print('-depsc',fName);
+end
+
+figure;
+imshow(realCrop.^(1/2.2),'Border','tight');
+if isempty(destDir) == 0
+    fName = fullfile(destDir,'RGBEmulationReal.eps');
+    print('-depsc',fName);
+end
+
+figure;
+imshow(simCrop.^(1/2.2),'Border','tight');
+if isempty(destDir) == 0
+    fName = fullfile(destDir,'RGBEmulationSim.eps');
+    print('-depsc',fName);
+end
 
 
+%{
+axes('position',[0.65 0.6 0.3 0.3]);
+annotation(fig,'textbox',...
+    [0.75 0.55 0.108928571428571 0.05],'String',{'Captured'},'FontSize',10,'linestyle','none');
+imshow(realCrop.^(1/2.2));
+
+axes('position',[0.65 0.2 0.3 0.3]);
+annotation(fig,'textbox',...
+    [0.75 0.15 0.108928571428571 0.05],'String',{'Emulated'},'FontSize',10,'linestyle','none');
+imshow(simCrop.^(1/2.2));
+%}
+
+
+
+% Scatter plot of emulated vs. captured Macbeth patch intensities.
+
+figure;
+hold on; grid on; box on;
+plot(emulatedMacbethSamples(:,1),capturedMacbethSamples(:,1),'r.','markerSize',20);
+plot(emulatedMacbethSamples(:,2),capturedMacbethSamples(:,2),'g.','markerSize',20);
+plot(emulatedMacbethSamples(:,3),capturedMacbethSamples(:,3),'b.','markerSize',20);
+xlabel('Emulated data');
+ylabel('Captured data');
 
 

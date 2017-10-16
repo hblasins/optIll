@@ -12,8 +12,10 @@ clc;
 
 [codePath, parentPath] = olRootPath();
 
-resultDir = fullfile('/','Volumes','MyPassport','OptimalLight','ResultsSimplified');
-destPath = fullfile(parentPath,'TestFigures');
+resultDir = fullfile(parentPath,'ResultsFull');
+% resultDir = fullfile('/','Volumes','MyPassport','OptimalLight','ResultsSimplified');
+% destPath = fullfile(parentPath,'TestFigures');
+destPath = [];
 
 target = 'RedAndGreenApples';
 
@@ -99,7 +101,7 @@ for o=1:length(optimalCameras)
 end
 
 %% Plot optimal illuminants only
-
+fs = 10;
 o = 1; % Unsupervised
 lw = 2;
 for t=1:5
@@ -156,6 +158,47 @@ hd = annotation(gcf,'textbox',...
     [0.7 0.42 0.4 0.2],...
     'String',{'Best RGB camera'},...
     'FitBoxToText','off','lineStyle','none','fontSize',fs,'color','b');
+
+if ~isempty(destPath)
+    fName = fullfile(destPath,'NChannels.eps');
+    print('-depsc',fName);
+end
+
+%% Plots for dissertation
+%  This is the plot formatting I used in my dissertation.
+
+destPath = fullfile('~','Desktop','Figures','Optimal illuminant');
+if exist(destPath,'dir') == 0
+    mkdir(destPath);
+end
+
+pos = [1 1 10 5];
+fs = 8;
+lw = 1;
+ms = 5;
+
+figure;
+hold on; grid on; box on;
+set(gcf,'PaperUnits','centimeters');
+set(gca,'FontSize',fs);
+set(gcf,'PaperPosition',pos);
+set(gca','TickLabelInterpreter','LaTeX');
+dta = squeeze(accy(1:2,1,:))'*100;
+hndl = plot(dta,'lineWidth',lw);
+hndl(1).LineStyle = ':';
+hndl(1).Color = 'green';
+hndl(2).Color = 'red';
+plot(1:10,ones(10,1)*85.6,'b','LineWidth',lw);
+xlabel('Number of illuminants','Interpreter','LaTeX','FontSize',fs);
+ylabel('Classification accuracy, \%','Interpreter','LaTeX','FontSize',fs);
+legend(hndl,{'Unsupervised','Supervised'},'location','southeast','Interpreter','LaTeX','FontSize',fs-2);
+hd = annotation(gcf,'textbox',...
+    [0.7 0.45 0.4 0.2],...
+    'String',{'Best RGB camera'},...
+    'FitBoxToText','off','lineStyle','none','fontSize',fs-2,'color','b',...
+    'Interpreter','LaTeX');
+xlim([1 size(dta,1)]);
+
 
 if ~isempty(destPath)
     fName = fullfile(destPath,'NChannels.eps');
